@@ -15,3 +15,13 @@
 .tables button:hover {
   background: red;
 }
+
+.tables span {
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+}
+
+.tables span span {
+  color: rgb(89, 89, 212);
+}

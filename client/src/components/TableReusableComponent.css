@@ -1,0 +1,17 @@
+.tables {
+  border: 1px solid black;
+  margin-top: 3px;
+  padding: 3px;
+  row-gap: 2px;
+}
+
+.tables button {
+  background: rgb(232, 140, 140);
+  padding: 2px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.tables button:hover {
+  background: red;
+}

@@ -15,11 +15,11 @@ const Header = () => {
         </button>
       </header>
 
-      <div className="pt-14">
+      <div className="pt-14 w-[100%] -z-20">
         <img
           src={promotionBannerImage}
           alt="promotionBannerImage"
-          className="w-full h-96 object-cover"
+          className="w-full md:h-[300px] h-[200px]"
         />
       </div>
     </>

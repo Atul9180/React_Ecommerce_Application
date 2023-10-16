@@ -15,11 +15,11 @@ const Header = () => {
         </button>
       </header>
 
-      <div className="pt-14 w-[100%] -z-20">
+      <div className="pt-14 w-[100%] -z-20 h-[30rem] overflow-hidden relative bg-zinc-600 ">
         <img
           src={promotionBannerImage}
           alt="promotionBannerImage"
-          className="w-full md:h-[300px] h-[200px]"
+          className="w-[110%] max-h-[100%] transform -rotate-[1.5deg] object-cover"
         />
       </div>
     </>

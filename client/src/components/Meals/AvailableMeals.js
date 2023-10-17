@@ -42,13 +42,33 @@ const DUMMY_MEALS = [
 const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal, index) => (
     <>
-      <li id={meal.id} className="bg-white list-none font-sans px-5 py-3 mb-0">
-        <h3 className="font-bold">{meal.name}</h3>
-        <span className="italic font-medium text-gray-500">
-          {meal.description}
-        </span>
-        <h2 className="font-bold text-lg text-orange-500"> ${meal.price}</h2>
+      <li
+        id={meal.id}
+        className="bg-white list-none font-sans px-5 py-3 mb-0 flex justify-between"
+      >
+        <div>
+          <h3 className="font-bold">{meal.name}</h3>
+          <span className="italic font-medium text-gray-500">
+            {meal.description}
+          </span>
+          <h2 className="font-bold text-lg text-orange-500"> ${meal.price}</h2>
+        </div>
+
+        <div className="">
+          <h3 className="font-sans font-bold">
+            Amount
+            <input
+              type="text"
+              value="1"
+              className="ml-2 border border-gray-300 font-semibold w-8 text-center"
+            />
+          </h3>
+          <button className="mt-2 px-5 text-white bg-red-700 py-1 rounded-2xl font-bold hover:bg-red-900">
+            +Add
+          </button>
+        </div>
       </li>
+
       {index !== DUMMY_MEALS.length - 1 && (
         <hr className=" border-gray-400 border-opacity-50" />
       )}
@@ -56,11 +76,11 @@ const AvailableMeals = () => {
   ));
 
   return (
-    <div className="w-full bg-gray-600 pb-5">
-      <div className="w-[98%] sm:w-[90%] md:w-[60%] px-5 py-2 rounded-xl mx-auto bg-white">
-        {mealsList}
-      </div>
+    // <div className="w-full bg-gray-600 pb-5">
+    <div className="w-[94vw] sm:w-[90vw] md:w-[80vw] lg:w-[60vw] px-5 py-2 rounded-xl mx-auto bg-white mb-[1em]">
+      {mealsList}
     </div>
+    // </div>
   );
 };
 

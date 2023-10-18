@@ -1,13 +1,25 @@
+import { useState } from "react";
+import { createPortal } from "react-dom";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
+import Cart from "./components/Cart/Cart";
+import { CartProvider } from "./store/CartContext";
 
-function App() {
+const App = () => {
+  const [showCart, setShowCart] = useState(false);
+
   return (
-    <div>
-      <Header />
+    <CartProvider>
+      {showCart &&
+        createPortal(
+          <Cart onCloseCart={() => setShowCart(false)} />,
+          document.body
+        )}
+
+      <Header onShowCart={() => setShowCart(true)} />
       <Meals />
-    </div>
+    </CartProvider>
   );
-}
+};
 
 export default App;

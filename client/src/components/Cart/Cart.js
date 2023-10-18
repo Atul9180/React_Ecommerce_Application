@@ -1,6 +1,6 @@
 import Card from "../UI/Card";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartItems = (
     <ul className="list-none m-0 p-0">
       {[{ id: "c1", name: "Sushi", amount: 2, price: 12.99 }].map((item) => (
@@ -19,7 +19,10 @@ const Cart = () => {
           <span className="mr-5 mb-3">$35.62</span>
         </div>
         <div className="text-right">
-          <button className="font-inherit cursor-pointer border border-solid border-[#8a2b06] py-2 px-8 rounded-full ml-4 hover:bg-[#5a1a01] hover:border-[#5a1a01] hover:text-white">
+          <button
+            className="font-inherit cursor-pointer border border-solid border-[#8a2b06] py-2 px-8 rounded-full ml-4 hover:bg-[#5a1a01] hover:border-[#5a1a01] hover:text-white"
+            onClick={props.onCloseCart}
+          >
             Close
           </button>
           <button className="font-inherit cursor-pointer bg-[#8a2b06] text-white border border-solid border-[#8a2b06] py-2 px-8 rounded-full ml-4 hover:bg-[#5a1a01] hover:border-[#5a1a01]">

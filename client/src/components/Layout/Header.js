@@ -1,5 +1,6 @@
 import promotionBannerImage from "../../assets/PromotionBanner.png";
-import HeaderCartButton from "../Cart/HeaderCartButton";
+import CartHeaderButton from "../Cart/CartHeaderButton";
+import RestaurentSummary from "../Restaurant/RestaurentSummary";
 
 const Header = ({ onShowCart }) => {
   return (
@@ -9,8 +10,9 @@ const Header = ({ onShowCart }) => {
           Nawabi Nosh
         </h1>
 
-        <HeaderCartButton onOpenCart={onShowCart} />
+        <CartHeaderButton onOpenCart={onShowCart} />
       </header>
+
       <div className="pt-14 h-[50vh] lg:h-[60vh] sm:h-[55vh] overflow-hidden">
         <img
           src={promotionBannerImage}
@@ -18,6 +20,8 @@ const Header = ({ onShowCart }) => {
           className="w-[100%] max-h-[100%] transform -rotate-[2deg] -translate-y-7 "
         />
       </div>
+
+      <RestaurentSummary />
     </>
   );
 };

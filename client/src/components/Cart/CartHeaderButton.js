@@ -1,14 +1,10 @@
 import { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import CartContext from "../../store/CartContext";
+import { CartContext } from "../../context/ShoppingCartContext";
 
-const HeaderCartButton = ({ onOpenCart }) => {
-  const cartCtx = useContext(CartContext);
-  console.log({ cartCtx });
-
-  // const totalCartItems = cartCtx.items.reduce((currNumber, item) => {
-  //   return currNumber + item.totalQuantity;
-  // }, 0);
+const CartHeaderButton = ({ onOpenCart }) => {
+  const { cartState, totalCartQuantity } = useContext(CartContext);
+  console.log({ cartState });
 
   return (
     <button
@@ -18,10 +14,10 @@ const HeaderCartButton = ({ onOpenCart }) => {
       <FaShoppingCart className="text-white" />
       <span className="text-white font-semibold ml-2">Your Cart</span>
       <div className="w-auto px-3.5 ml-2 rounded-full bg-[#e35143] flex items-center justify-center">
-        <span className="font-semibold">{cartCtx.totalQuantity}</span>
+        <span className="font-semibold text-white">{totalCartQuantity}</span>
       </div>
     </button>
   );
 };
 
-export default HeaderCartButton;
+export default CartHeaderButton;

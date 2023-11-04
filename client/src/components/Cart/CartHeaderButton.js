@@ -3,8 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../../context/ShoppingCartContext";
 
 const CartHeaderButton = ({ onOpenCart }) => {
-  const { cartState, totalCartQuantity } = useContext(CartContext);
-  console.log({ cartState });
+  const { totalCartQuantity } = useContext(CartContext);
 
   return (
     <button

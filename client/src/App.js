@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import Header from "./components/Layout/Header";
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./context/ShoppingCartContext";
-import AvailableMeals from "./components/Meals/AvailableMeals";
+import MealsList from "./components/Meals/MealsList";
 
 const App = () => {
   const [showCart, setShowCart] = useState(false);
@@ -17,7 +17,7 @@ const App = () => {
         )}
 
       <Header onShowCart={() => setShowCart(true)} />
-      <AvailableMeals />
+      <MealsList />
     </CartContextProvider>
   );
 };

@@ -3,8 +3,7 @@ import { CartContext } from "../../context/ShoppingCartContext";
 import DUMMY_MEALS from "../../data/data";
 
 const MealsList = () => {
-  const { cartState, dispatch } = useContext(CartContext);
-  console.log({ cartState });
+  const { cartState, dispatch, getQuantityInCart } = useContext(CartContext);
 
   const addToCart = (meal) => {
     const { id, name, description, price } = meal;
@@ -15,7 +14,7 @@ const MealsList = () => {
   };
 
   return (
-    <>
+    <div className="w-[94vw] sm:w-[90vw] md:w-[80vw] lg:w-[60vw] px-5 py-2 rounded-xl mx-auto bg-white mb-[1em]">
       {DUMMY_MEALS.map((meal, index) => (
         <section key={meal.id}>
           <li className="bg-white list-none font-sans px-5 py-3 mb-0 flex justify-between">
@@ -35,10 +34,7 @@ const MealsList = () => {
                 Quantity
                 <input
                   type="text"
-                  value={
-                    cartState.cartItems.find((item) => item.id === meal.id)
-                      ?.quantity || 0
-                  }
+                  value={getQuantityInCart(cartState.cartItems, meal.id)}
                   className="ml-2 border border-gray-300 font-semibold w-8 text-center"
                 />
               </h3>
@@ -56,7 +52,7 @@ const MealsList = () => {
           )}
         </section>
       ))}
-    </>
+    </div>
   );
 };
 

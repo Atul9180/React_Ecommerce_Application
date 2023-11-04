@@ -42,34 +42,11 @@ const decreaseCartItemQuantity = (state, action) => {
       return item;
     })
     .filter(Boolean);
+  //filter(Boolean) effectively removes all falsy values (in this case, only null) from the array when reaches itemquantity 0 in map
 
   const updatedTotalCartQuantity = state.totalCartQuantity - 1;
   const updatedTotalCartPrice = state.totalCartPrice - action.payload.price;
 
-  return {
-    ...state,
-    cartItems: updatedItems,
-    totalCartQuantity: updatedTotalCartQuantity,
-    totalCartPrice: updatedTotalCartPrice,
-  };
-};
-
-//manually update cart item by entering value
-const manuallyUpdateCartQuantity = (state, action) => {
-  const updatedItems = state.cartItems.map((item) => {
-    if (item.id === action.payload.id) {
-      return { ...item, quantity: action.payload.newQuantity };
-    }
-    return item;
-  });
-  const updatedTotalCartQuantity = updatedItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-  const updatedTotalCartPrice = updatedItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
   return {
     ...state,
     cartItems: updatedItems,
@@ -104,9 +81,14 @@ const removeFromCart = (state, action) => {
   };
 };
 
+const getQuantityInCart = (cartItems, id) => {
+  const item = cartItems.find((item) => item.id === id);
+  return item ? item.quantity : 0;
+};
+
 export {
   addToCart,
   decreaseCartItemQuantity,
   removeFromCart,
-  manuallyUpdateCartQuantity,
+  getQuantityInCart,
 };

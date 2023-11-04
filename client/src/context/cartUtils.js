@@ -1,7 +1,3 @@
-//state=>{cartItems[],payload}
-//action => {payload={id}}
-
-//adding item to cart
 const addToCart = (state, action) => {
   const isExistingCartItem = state.cartItems.findIndex(
     (item) => item.id === action.payload.id

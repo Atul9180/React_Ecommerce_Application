@@ -1,4 +1,15 @@
-const CartItem = ({ item, increaseItem, decreaseQuantity }) => {
+import { useCallback, memo } from "react";
+
+//using memo to Memoizing it helps prevent unnecessary renders when its parent component renders.
+const CartItem = memo(({ item, increaseItem, decreaseQuantity }) => {
+  const handleDecrease = useCallback(() => {
+    decreaseQuantity(item.id);
+  }, [decreaseQuantity, item.id]);
+
+  const handleIncrease = useCallback(() => {
+    increaseItem(item.id);
+  }, [increaseItem, item.id]);
+
   return (
     <section key={item.id}>
       <li
@@ -20,14 +31,14 @@ const CartItem = ({ item, increaseItem, decreaseQuantity }) => {
 
         <div className="text-center font-bold">
           <button
-            onClick={() => decreaseQuantity(item.id)}
+            onClick={handleDecrease}
             className="mr-2 px-3 text-red-700 rounded-sm border border-red-800"
           >
             -
           </button>
 
           <button
-            onClick={() => increaseItem(item.id)}
+            onClick={handleIncrease}
             className="ml-2 px-3 text-white bg-red-700 rounded-sm border border-white hover:bg-red-900"
           >
             +
@@ -38,6 +49,9 @@ const CartItem = ({ item, increaseItem, decreaseQuantity }) => {
       <hr className=" border-red-600 m-1 border-1" />
     </section>
   );
-};
+});
 
 export default CartItem;
+
+// In CartItem, we use useCallback to create memoized versions of handleDecrease and handleIncrease functions. This ensures that these functions don't change between renders unless decreaseQuantity or increaseItem dependencies change.
+// We use useMemo for expensive calculations that don't need to be recomputed on every render.

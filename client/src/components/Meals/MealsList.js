@@ -35,7 +35,10 @@ const MealsList = () => {
                 Quantity
                 <input
                   type="text"
-                  value={+meal.quantity}
+                  value={
+                    cartState.cartItems.find((item) => item.id === meal.id)
+                      ?.quantity || 0
+                  }
                   className="ml-2 border border-gray-300 font-semibold w-8 text-center"
                 />
               </h3>

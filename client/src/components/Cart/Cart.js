@@ -77,7 +77,7 @@ const Cart = (props) => {
           {cartState.cartItems.length !== 0 ? (
             <>
               <span className="font-sans">Total Amount</span>
-              <span className="mr-5 mb-3">{totalCartPrice}</span>
+              <span className="mr-5 mb-3">${totalCartPrice.toFixed(2)}</span>
             </>
           ) : (
             <span className="font-sans">Cart Empty....</span>

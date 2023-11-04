@@ -1,6 +1,7 @@
 //state=>{cartItems[],payload}
 //action => {payload={id}}
 
+//adding item to cart
 const addToCart = (state, action) => {
   const isExistingCartItem = state.cartItems.findIndex(
     (item) => item.id === action.payload.id
@@ -26,6 +27,7 @@ const addToCart = (state, action) => {
   };
 };
 
+//decrease one item at a time
 const decreaseCartItemQuantity = (state, action) => {
   const updatedItems = state.cartItems
     .map((item) => {
@@ -52,6 +54,7 @@ const decreaseCartItemQuantity = (state, action) => {
   };
 };
 
+//manually update cart item by entering value
 const manuallyUpdateCartQuantity = (state, action) => {
   const updatedItems = state.cartItems.map((item) => {
     if (item.id === action.payload.id) {
@@ -75,7 +78,7 @@ const manuallyUpdateCartQuantity = (state, action) => {
   };
 };
 
-//remove cart item...
+//remove last quantity item from cart...
 const removeFromCart = (state, action) => {
   const removedItem = state.cartItems.find(
     (item) => item.id === action.payload.id

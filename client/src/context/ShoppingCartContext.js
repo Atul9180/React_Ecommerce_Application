@@ -25,6 +25,7 @@ const cartReducer = (state, action) => {
 
 const CartContextProvider = ({ children }) => {
   const [cartState, dispatch] = useReducer(cartReducer, { cartItems: [] });
+  //const [mealQuantities, setMealQuantities] = useState({});
 
   const totalCartQuantity = cartState.cartItems.reduce(
     (total, item) => total + item.quantity,

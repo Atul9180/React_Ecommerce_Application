@@ -1,9 +1,10 @@
 import { memo } from "react";
 import CartItem from "./CartItem";
+import { CartItemsListStyles } from "../../styles/CartStyles";
 
 const CartItemsList = memo(({ cartItems, increaseItem, decreaseQuantity }) => {
   return (
-    <section className="m-1.5 min-h-fit max-h-[49vh] overflow-y-auto scroll-smooth shadow-sm">
+    <section className={CartItemsListStyles.itemsList}>
       {cartItems?.map((item) => (
         <CartItem
           key={item.id}

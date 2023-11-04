@@ -1,4 +1,5 @@
 import { useCallback, memo } from "react";
+import { CartItemStyles } from "../../styles/CartStyles";
 
 //using memo to Memoizing it helps prevent unnecessary renders when its parent component renders.
 const CartItem = memo(({ item, increaseItem, decreaseQuantity }) => {
@@ -15,38 +16,38 @@ const CartItem = memo(({ item, increaseItem, decreaseQuantity }) => {
       <li
         key={item.id}
         id={item.id}
-        className="bg-white list-none font-sans px-5 py-3 mb-0 flex justify-between"
+        className={CartItemStyles.listItemContainer}
       >
         <div>
-          <h3 className="font-bold mb-1">{item.name}</h3>
-          <h2 className="font-bold text-lg text-orange-500">
+          <h3 className={CartItemStyles.itemName}>{item.name}</h3>
+          <h2 className={CartItemStyles.itemPrice}>
             ${item.price}
             <input
               type="text"
               value={`x ${item.quantity}`}
-              className="ml-7 px-1 border border-gray-300 font-medium w-10 text-center"
+              className={CartItemStyles.quantityInput}
             />
           </h2>
         </div>
 
-        <div className="text-center font-bold">
+        <div className={CartItemStyles.actionButtonsContainer}>
           <button
             onClick={handleDecrease}
-            className="mr-2 px-3 text-red-700 rounded-sm border border-red-800"
+            className={CartItemStyles.decreaseButton}
           >
             -
           </button>
 
           <button
             onClick={handleIncrease}
-            className="ml-2 px-3 text-white bg-red-700 rounded-sm border border-white hover:bg-red-900"
+            className={CartItemStyles.increaseButton}
           >
             +
           </button>
         </div>
       </li>
 
-      <hr className=" border-red-600 m-1 border-1" />
+      <hr className={CartItemStyles.hrDivider} />
     </section>
   );
 });

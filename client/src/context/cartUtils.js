@@ -58,7 +58,7 @@ const removeFromCart = (state, action) => {
   );
 
   if (!removedItem) {
-    return state; // If item is not found, return the same state
+    return state;
   }
 
   const updatedCartItems = state.cartItems.filter(

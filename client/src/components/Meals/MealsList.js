@@ -2,6 +2,7 @@ import { useContext, useMemo } from "react";
 import { CartContext } from "../../context/ShoppingCartContext";
 import DUMMY_MEALS from "../../data/data";
 import MealItem from "./MealItem";
+import { MealsListStyles } from "../../styles/MealsStyles";
 
 const MealsList = () => {
   const { cartState, dispatch, getQuantityInCart } = useContext(CartContext);
@@ -15,7 +16,7 @@ const MealsList = () => {
   };
 
   return (
-    <div className="w-[94vw] sm:w-[90vw] md:w-[80vw] lg:w-[60vw] px-5 py-2 rounded-xl mx-auto bg-white mb-[1em]">
+    <div className={MealsListStyles.mealsList}>
       {memoizedDummyMeals.map((meal, index) => (
         <MealItem
           meal={meal}
